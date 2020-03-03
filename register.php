@@ -19,24 +19,32 @@ if (isset($_POST['register'])) {
             if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
                 array_push($error, "Invalid email format");
             } else {
-                $password1 = $_POST['password1'];
-                $password2 = $_POST['password2'];
+                $query = "SELECT * FROM users WHERE email = '$email'";
+                $query = mysqli_query($connect, $query);
 
-                if ($password1 != $password2) {
-                    array_push($error, "Passwords don't match");
+                $number = mysqli_num_rows($query);
+                if ($number > 0) {
+                    array_push($error, "The user with the email '$email' already exists, <a href='login.php'>log in</a> instead?");
                 } else {
-                    if (strlen($password1) < 8) {
-                        array_push($error, "Password should be at least 8 characters long");
+                    $password1 = $_POST['password1'];
+                    $password2 = $_POST['password2'];
+
+                    if ($password1 != $password2) {
+                        array_push($error, "Passwords don't match");
                     } else {
-                        $password = sha1(md5($password1));
+                        if (strlen($password1) < 8) {
+                            array_push($error, "Password should be at least 8 characters long");
+                        } else {
+                            $password = sha1(md5($password1));
 
-                        $query = "INSERT INTO users VALUES ('', '$fullName', '$email', '$password')";
-                        $query = mysqli_query($connect, $query);
+                            $query = "INSERT INTO users VALUES ('', '$fullName', '$email', '$password')";
+                            $query = mysqli_query($connect, $query);
 
-                        session_start();
-                        $_SESSION['email'] = $email;
-                        header("Location: login.php");
-                        exit();
+                            session_start();
+                            $_SESSION['email'] = $email;
+                            header("Location: login.php");
+                            exit();
+                        }
                     }
                 }
             }
@@ -59,7 +67,7 @@ if (isset($_POST['register'])) {
     if ($error) {
         echo '<div class="error"><ul>';
         foreach ($error as $value) {
-            echo "<li>".$value."</li>";
+            echo "<li>" . $value . "</li>";
         }
         echo '</ul></div>';
     }
