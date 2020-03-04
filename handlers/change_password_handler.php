@@ -1,7 +1,7 @@
 <?php
 $errors = array();
 if (isset($_POST['change'])) {
-    if (!$_POST['passOld'] | !$_POST['passNew1'] | $_POST['passNew2']) {
+    if (!$_POST['passOld'] | !$_POST['passNew1'] | !$_POST['passNew2']) {
         array_push($errors, "All input fields are reqired");
     } else {
         $passOld = $_POST['passOld'];
@@ -14,8 +14,10 @@ if (isset($_POST['change'])) {
         $data = mysqli_fetch_array($qr);
         $passDB = $data['password'];
 
-        if ($passNew1 == $passNew2) {
-            if (strlen($passNew1 < 8)) {
+        if ($passNew1 != $passNew2) {
+            array_push($errors, "New Passwords don't match");
+        } else {
+            if (strlen($passNew1) < 8) {
                 array_push($errors, "New Password has to be over 8 characters long");
             } else {
                 $passNew = sha1(md5($passNew1));
@@ -31,8 +33,6 @@ if (isset($_POST['change'])) {
                     }
                 }
             }
-        } else {
-            array_push($errors, "New Passwords don't match");
         }
     }
 }
