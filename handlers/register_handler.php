@@ -25,8 +25,8 @@ if (isset($_POST['register'])) {
                 if ($number > 0) {
                     array_push($error, "The user with the email '$email' already exists, <a href='login.php'>log in</a> instead?");
                 } else {
-                    $password1 = $_POST['password1'];
-                    $password2 = $_POST['password2'];
+                    $password1 = sha1(md5(urlencode($_POST['password1'])));
+                    $password2 = sha1(md5(urlencode($_POST['password2'])));
 
                     if ($password1 != $password2) {
                         array_push($error, "Passwords don't match");
@@ -34,15 +34,18 @@ if (isset($_POST['register'])) {
                         if (strlen($password1) < 8) {
                             array_push($error, "Password should be at least 8 characters long");
                         } else {
-                            $password = sha1(md5($password1));
 
-                            $query = "INSERT INTO users VALUES ('', '$fullName', '$email', '$password')";
-                            $query = mysqli_query($connect, $query);
+                            $query = "INSERT INTO users VALUES ('', '$fullName', '$email', '$password1', 'PENDING')";
 
-                            session_start();
-                            $_SESSION['email'] = $email;
-                            header("Location: login.php");
-                            exit();
+                            if (mysqli_query($connect, $query)) {
+                                session_start();
+                                $_SESSION['email'] = $email;
+                                header("Location: login.php");
+                                // exit();
+                            } else {
+                                echo mysqli_error($connect);
+                                echo 'There was an error ' . $error;
+                            }
                         }
                     }
                 }
@@ -50,5 +53,3 @@ if (isset($_POST['register'])) {
         }
     }
 }
-
-?>

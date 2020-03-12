@@ -20,7 +20,7 @@ if (isset($_POST['change'])) {
             if (strlen($passNew1) < 8) {
                 array_push($errors, "New Password has to be over 8 characters long");
             } else {
-                $passNew = sha1(md5($passNew1));
+                $passNew = sha1(md5(urlencode($passNew1)));
 
                 if ($passDB == $passNew) {
                     array_push($errors, "New Password can't be the same as old password");

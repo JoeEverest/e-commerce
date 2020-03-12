@@ -6,8 +6,7 @@ if (isset($_POST['login'])) {
         array_push($errors, "All input fields are required");
     } else {
         $email = $_POST['email'];
-        $password = $_POST['password'];
-        $password = sha1(md5($password));
+        $password = sha1(md5(urlencode($_POST['password'])));
 
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             array_push($errors, "Invalid email format");
