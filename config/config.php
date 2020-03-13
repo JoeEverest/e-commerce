@@ -1,8 +1,8 @@
 <?php
-$host = '3210jr44339.ipagemysql.com';
-$loginUser = 'joeeverest';
-$loginPassword = 'nGf2PKPThV*9';
-$dbName = 'regtest';
+$host = 'localhost';
+$loginUser = 'root';
+$loginPassword = '';
+$dbName = 'auth';
 $connect = mysqli_connect($host, $loginUser, $loginPassword, $dbName);//Connection variable
 
 if(mysqli_connect_errno()) 
