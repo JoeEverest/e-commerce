@@ -2,6 +2,7 @@
 require('../config/config.php');
 require('session.php');
 require('account-handlers/verification_check_handler.php');
+require("queries.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,8 +14,16 @@ require('account-handlers/verification_check_handler.php');
 </head>
 
 <body>
-    <a href="logout.php">Logout</a>
-    <a href="change_password.php">Change Password</a>
+    <h4>Account</h4>
+    <ul>
+        <li><a href="change_password.php">Change Password</a></li>
+        <li><a href="logout.php">Logout</a></li>
+    </ul>
+    <h4>Products</h4>
+    <ul>
+        <li><a href="create_category.php">Create New Category</a></li>
+        <li><a href="create_product.php">Create New Product</a></li>
+    </ul>
 </body>
 
 </html>

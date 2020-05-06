@@ -6,3 +6,12 @@ if (isset($_SESSION['email'])) {
     header("Location: login.php");
 }
 ?>
+<style>
+    input{
+        display: block;
+        margin: 10px;
+    }
+    * {
+        font-family: Lato;
+    }
+</style>
