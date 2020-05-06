@@ -1,7 +1,7 @@
 <?php
-include("config/config.php");
-session_start();
-include("handlers/login_handler.php");
+require('../config/config.php');
+require('session.php');
+require('account-handlers/verification_handler.php')
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,7 +9,7 @@ include("handlers/login_handler.php");
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Log In</title>
+    <title>Verify Email</title>
 </head>
 
 <body>
@@ -25,10 +25,14 @@ include("handlers/login_handler.php");
         ?>
     </div>
     <form method="post">
-        <input type="email" name="email" placeholder="Email Address">
-        <input type="password" name="password" placeholder="Password">
-        <button type="submit" name="login">Log In</button>
+        <p>A verification code has been sent to <?php echo $user; ?>.</p>
+        <p>Can't see email? <button name="resend">Resend</button></p>
     </form>
+    <form method="post">
+        <input type="number" name="code" placeholder="Verification code">
+        <button type="submit" name="verify">Verify Account</button>
+    </form>
+
 </body>
 
 </html>
