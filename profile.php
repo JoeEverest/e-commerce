@@ -2,6 +2,11 @@
 session_start();
 require("./config/config.php");
 require("./config/session.php");
+if(isset($_GET['name'])){
+$user = $_GET['name'];
+}else{
+    header("Location: index.php");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,8 +21,7 @@ require("./config/session.php");
         .post img {
             max-width: 100%;
         }
-
-        .post .details {
+        .post .details{
             padding: 5px;
         }
     </style>
@@ -33,7 +37,7 @@ require("./config/session.php");
 
     <div class="main">
         <?php
-        $getProducts = mysqli_query($connect, "SELECT * FROM `products` ORDER BY id");
+        $getProducts = mysqli_query($connect, "SELECT * FROM `products` WHERE user = '$user' ORDER BY id");
         while ($data = mysqli_fetch_array($getProducts)) {
             $images = json_decode($data['images'], true);
             $user = $data['user'];
@@ -48,7 +52,7 @@ require("./config/session.php");
                     <h3><?php echo $name; ?></h3>
                     <h3><?php echo $price; ?></h3>
                     <span><a href="profile.php?name=<?php echo $user; ?>"><?php echo $user; ?></a></span>
-                    <span><a class="btn btn-sm btn-success" href="order.php?id=<?php echo $id; ?>">Order</a></span>
+                    <span><a class="btn btn-sm btn-success" href="product.php?id=<?php echo $id; ?>">Order</a></span>
                 </div>
             </div>
         <?php } ?>

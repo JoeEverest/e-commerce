@@ -9,8 +9,10 @@ if (!$isLoggedIn) {
 }
 
 if (isset($_POST['add'])) {
-    if (isset($_POST['name'], $_POST['price'], $_POST['description'])) {
+    if (isset($_POST['name'], $_POST['price'], $_POST['category'], $_POST['condition'], $_POST['description'])) {
         $name = mysqli_real_escape_string($connect, $_POST['name']);
+        $condition = mysqli_real_escape_string($connect, $_POST['condition']);
+        $category = mysqli_real_escape_string($connect, $_POST['category']);
         $price = mysqli_real_escape_string($connect, $_POST['price']);
         $description = mysqli_real_escape_string($connect, $_POST['description']);
         $date = date("Y-m-d");
@@ -39,9 +41,11 @@ if (isset($_POST['add'])) {
             }
             $images = json_encode($images);
             if ($uploadSuccess) {
-                $addProduct = "INSERT INTO products VALUES ('$id', '$name', '$price', '$description', '$images', '$date', '$username', 'true')";
+                $addProduct = "INSERT INTO products VALUES ('$id', '$name', '$price', '$condition', '$category', '$description', '$images', '$date', '$username', 'true')";
                 if (mysqli_query($connect, $addProduct)) {
                     array_push($message, "Product Added Successfully");
+                } else {
+                    echo mysqli_error($connect);
                 }
             }
         } else {
@@ -73,6 +77,25 @@ if (isset($_POST['add'])) {
             <div class="form-group">
                 <lable>Product Price</lable>
                 <input type="number" name="price" class="form-control">
+            </div>
+            <div class="form-group">
+                <lable>Product Category</lable>
+                <select name="category" class="form-control">
+                    <option value="">Select Category</option>
+                    <option value="other">Other</option>
+                    <option value="accessories">Accessories</option>
+                    <option value="electronics">Electronics</option>
+                    <option value="clothing">Clothing</option>
+                    <option value="shoes">Shoes</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <lable>Product Condition</lable>
+                <select name="condition" class="form-control">
+                    <option value="">Select Condition</option>
+                    <option value="true">Used</option>
+                    <option value="false">New</option>
+                </select>
             </div>
             <div class="form-group">
                 <lable>Product Description</lable>

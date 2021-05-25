@@ -21,8 +21,7 @@ require("../config/session.php");
     <?php } ?>
     <ul>
         <li><a href="add_product.php">Post Product</a></li>
-        <li><a href="">My Orders</a></li>
-        <li><a href="">Manage Products</a></li>
+        <li><a href="orders.php">My Orders</a></li>
     </ul>
 </body>
 
