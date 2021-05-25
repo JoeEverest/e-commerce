@@ -1,7 +1,7 @@
 <?php
 session_start();
-require("../config/config.php");
-require("../config/session.php");
+require("./config/config.php");
+require("./config/session.php");
 $errors = array();
 $message = array();
 if (!$isLoggedIn) {
@@ -22,14 +22,6 @@ if (!$isLoggedIn) {
 
 <body>
     <div class="container">
-        <ul class="nav nav-tabs">
-            <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="orders.php">Open Orders</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="closed_orders.php">Closed Orders</a>
-            </li>
-        </ul>
         <table class="table table-striped table-sm">
             <thead class="thead-dark">
                 <th>Product Name</th>
@@ -40,27 +32,43 @@ if (!$isLoggedIn) {
             </thead>
             <tbody>
                 <?php
-                $getOrders = mysqli_query($connect, "SELECT orders.id, products.name, products.price, orders.order_by, orders.user, orders.date FROM `orders` JOIN products WHERE orders.product_id = products.id AND orders.user = '$username' AND orders.open = 'true' ORDER BY orders.id ASC");
+                $getOrders = mysqli_query($connect, "SELECT orders.id, orders.product_id, orders.open, products.name, products.price, orders.order_by, orders.user, orders.date FROM `orders` JOIN products WHERE orders.product_id = products.id AND orders.order_by = '$username' ORDER BY orders.id ASC");
                 while ($data = mysqli_fetch_array($getOrders)) {
                     $name = $data['name'];
                     $id = $data['id'];
+                    $productId = $data['product_id'];
                     $price = $data['price'];
-                    $order_by = $data['order_by'];
+                    $seller = $data['user'];
                     $date = $data['date'];
+                    $open = $data['open'];
+
+                    if ($open == "true") {
+                        $status = "Open";
+                    } else {
+                        $status = "Closed";
+                    }
+
                 ?>
                     <tr>
-                        <td><?php echo $name; ?></td>
+                        <td><a href="order.php?id=<?php echo $productId; ?>"><?php echo $name; ?></a></td>
                         <td><?php echo $price; ?></td>
-                        <td><a href="../profile.php?name=<?php echo $order_by; ?>"><?php echo $order_by; ?></a></td>
+                        <td><a href="../profile.php?name=<?php echo $seller; ?>"><?php echo $seller; ?></a></td>
                         <td><?php echo $date; ?></td>
-                        <td><a href="close_order.php?id=<?php echo $id; ?>" class="btn btn-sm btn-danger">Close</a></td>
+                        <td><?php echo $status; ?></td>
                     </tr>
-                <?php
-                }
-                ?>
+                <?php } ?>
             </tbody>
         </table>
     </div>
+    <script>
+        function setActive(i) {
+            document.getElementById(i).classList.add("active");
+        }
+        document.addEventListener("DOMContentLoaded", function() {
+            setActive("my_orders");
+        });
+    </script>
+<?php require("./bottom_bar.php"); ?>
 </body>
 
 </html>

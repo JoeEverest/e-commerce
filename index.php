@@ -21,6 +21,7 @@ require("./config/session.php");
             padding: 5px;
         }
     </style>
+    <script src="https://kit.fontawesome.com/f66031190f.js" crossorigin="anonymous"></script>
     <title> </title>
 </head>
 
@@ -53,6 +54,15 @@ require("./config/session.php");
             </div>
         <?php } ?>
     </div>
+    <script>
+        function setActive(i) {
+            document.getElementById(i).classList.add("active");
+        }
+        document.addEventListener("DOMContentLoaded", function() {
+            setActive("home");
+        });
+    </script>
+    <?php require("./bottom_bar.php"); ?>
 </body>
 
 </html>
