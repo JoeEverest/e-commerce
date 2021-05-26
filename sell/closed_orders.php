@@ -61,6 +61,7 @@ if (!$isLoggedIn) {
             </tbody>
         </table>
     </div>
+    <?php require("./bottom_bar.php"); ?>
 </body>
 
 </html>

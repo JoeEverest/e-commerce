@@ -27,6 +27,7 @@ require("../config/session.php");
             <li><a href="orders.php">My Orders</a></li>
         </ul>
     </div>
+    <?php require("./bottom_bar.php"); ?>
 </body>
 
 </html>

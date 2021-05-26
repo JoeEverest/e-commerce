@@ -63,24 +63,48 @@ if (isset($_POST['add'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/f66031190f.js" crossorigin="anonymous"></script>
     <title>Post Product</title>
 </head>
 
 <body>
     <div class="container">
-        <a href="../logout.php">Logout</a>
+        <h3>Add Product</h3>
+        <?php
+        if (!empty($errors)) {
+            foreach ($errors as $key => $value) {
+        ?>
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <?php
+                    echo $value;
+                    ?>
+                </div>
+            <?php
+            }
+        }
+
+        if (!empty($message)) {
+            foreach ($message as $key => $value) {
+            ?>
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <?php
+                    echo $value;
+                    ?>
+                </div>
+        <?php }
+        } ?>
         <form method="post" enctype="multipart/form-data">
             <div class="form-group">
                 <lable>Product Name</lable>
-                <input type="text" name="name" class="form-control">
+                <input required type="text" name="name" class="form-control">
             </div>
             <div class="form-group">
                 <lable>Product Price</lable>
-                <input type="number" name="price" class="form-control">
+                <input required type="number" name="price" class="form-control">
             </div>
             <div class="form-group">
                 <lable>Product Category</lable>
-                <select name="category" class="form-control">
+                <select required name="category" class="form-control">
                     <option value="">Select Category</option>
                     <option value="other">Other</option>
                     <option value="accessories">Accessories</option>
@@ -103,11 +127,13 @@ if (isset($_POST['add'])) {
             </div>
             <div class="form-group">
                 <lable>Product Images</lable>
-                <input type="file" name="images[]" multiple accept=".jpg, .png, .jpeg" class="form-control">
+                <input required type="file" name="images[]" multiple accept=".jpg, .png, .jpeg" class="form-control">
             </div>
-            <button type="submit" name="add" class="btn btn-outline-success">Add Product</button>
+            <br>
+            <button type="submit" name="add" class="form-control btn btn-outline-success"><i class="fa fa-cart-plus"></i> Add Product</button>
         </form>
     </div>
+    <?php require("./bottom_bar.php"); ?>
 </body>
 
 </html>
