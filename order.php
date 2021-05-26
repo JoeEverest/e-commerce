@@ -71,6 +71,8 @@ if (isset($_POST['order'])) {
             <?php echo $description; ?>
         </div>
     </div>
+    <?php require("./bottom_bar.php"); ?>
+
 </body>
 
 </html>

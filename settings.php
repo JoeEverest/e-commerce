@@ -1,8 +1,3 @@
-<?php
-session_start();
-require("../config/config.php");
-require("../config/session.php");
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,21 +7,33 @@ require("../config/session.php");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
-    <title>Sell</title>
+    <title>Settings</title>
 </head>
 
 <body>
-    <div class="container">
-        <?php if ($isLoggedIn) { ?>
-            <a href="./logout.php">Logout</a>
-        <?php } else { ?>
-            <a href="./login.php">Login</a>
-        <?php } ?>
-        <ul>
-            <li><a href="add_product.php">Post Product</a></li>
-            <li><a href="orders.php">My Orders</a></li>
-        </ul>
-    </div>
+
+    <?php
+    session_start();
+    require("./config/config.php");
+    require("./config/session.php");
+
+    if ($isLoggedIn) { ?>
+        <a href="./logout.php">Logout</a>
+    <?php } else { ?>
+        <a href="./register.php">Sign Up</a>
+        <a href="./login.php">Login</a>
+    <?php }
+
+    require("./bottom_bar.php");
+    ?>
+    <script>
+        function setActive(i) {
+            document.getElementById(i).classList.add("active");
+        }
+        document.addEventListener("DOMContentLoaded", function() {
+            setActive("settings");
+        });
+    </script>
 </body>
 
 </html>

@@ -7,6 +7,7 @@
         display: flex;
         justify-content: space-evenly;
         border-top: 0.2px solid #c4c4c4;
+        background-color: #fff;
     }
 
     .bottom-bar span a {
@@ -32,6 +33,6 @@
         <a href="my_orders.php"><i class="fas fa-cart-arrow-down"></i>My Orders</a>
     </span>
     <span id="settings">
-        <a href=""><i class="fas fa-sliders-h"></i>Settings</a>
+        <a href="./settings.php"><i class="fas fa-sliders-h"></i>Settings</a>
     </span>
 </div>

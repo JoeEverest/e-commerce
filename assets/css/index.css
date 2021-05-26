@@ -1,0 +1,23 @@
+.post img {
+  max-width: 100%;
+}
+
+.post .details {
+  padding: 5px;
+}
+
+.sell a {
+  color: inherit;
+  font-size: x-large;
+}
+.main,
+.container {
+  margin: 70px 0;
+}
+.details h5 {
+  display: flex;
+  justify-content: space-between;
+}
+.post {
+  margin-bottom: 20px;
+}
