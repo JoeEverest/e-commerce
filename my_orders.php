@@ -23,7 +23,7 @@ if (!$isLoggedIn) {
 
 <body>
     <?php if ($isLoggedIn) { ?>
-        <span class="sell"><a href="/sell/"><i class="fas fa-cash-register"></i></a></span>
+        <span class="sell"><a href="/sell/"><i class="fas fa-cart-plus"></i></a></span>
     <?php } ?>
     <div class="container">
         <table class="table table-striped table-sm">

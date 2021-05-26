@@ -2,11 +2,17 @@
 session_start();
 require("./config/config.php");
 require("./config/session.php");
-if(isset($_GET['name'])){
-$user = $_GET['name'];
-}else{
+if (isset($_GET['name'])) {
+    $user = $_GET['name'];
+} else {
     header("Location: index.php");
 }
+
+$getProfileData = mysqli_query($connect, "SELECT * FROM `auth` WHERE username = '$user'");
+$profileData = mysqli_fetch_array($getProfileData);
+$profileName = $profileData['username'];
+$phone = $profileData['phone'];
+$email = $profileData['email'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,14 +25,20 @@ $user = $_GET['name'];
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./assets/css/index.css">
     <script src="https://kit.fontawesome.com/f66031190f.js" crossorigin="anonymous"></script>
-    <title> </title>
+    <title>Profile: @<?php echo $profileName; ?></title>
 </head>
 
 <body>
     <?php if ($isLoggedIn) { ?>
-        <span class="sell"><a href="/sell/"><i class="fas fa-cash-register"></i></a></span>
+        <span class="sell"><a href="/sell/"><i class="fas fa-cart-plus"></i></a></span>
     <?php } ?>
-
+    <div class="top">
+        <div class="card">
+            <h5>Username: @<?php echo $profileName; ?></h5>
+            <h5>Phone Number: <a href="tel:<?php echo $phone; ?>"><?php echo $phone; ?></a></h5>
+            <p>Email Address: <a href="mailto:<?php echo $email; ?>"><?php echo $email; ?></a></p>
+        </div>
+    </div>
     <div class="main">
         <?php
         $getProducts = mysqli_query($connect, "SELECT * FROM `products` WHERE user = '$user' ORDER BY id DESC");
@@ -39,13 +51,13 @@ $user = $_GET['name'];
             $description = $data['description'];
         ?>
             <div class="post card">
+                <h4><?php echo $name; ?></h4>
                 <img src="<?php echo $images[0]; ?>" alt="" loading="lazy">
                 <div class="details">
                     <h5>
-                        <span><?php echo $name; ?></span>
                         <span><?php echo number_format($price, 2); ?>/=</span>
+                        <span><a class="btn btn-sm btn-success" href="order.php?id=<?php echo $id; ?>">Order</a></span>
                     </h5>
-                    <span><a class="btn btn-sm btn-success" href="order.php?id=<?php echo $id; ?>">Order</a></span>
                 </div>
             </div>
         <?php } ?>

@@ -46,6 +46,9 @@ if (isset($_POST['order'])) {
             max-width: 100%;
         }
 
+        .container{
+            margin-bottom: 70px;
+        }
         .post .details {
             padding: 5px;
         }

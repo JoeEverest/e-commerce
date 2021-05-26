@@ -19,7 +19,7 @@ require("./config/session.php");
 
 <body>
     <?php if ($isLoggedIn) { ?>
-        <span class="sell"><a href="/sell/"><i class="fas fa-cash-register"></i></a></span>
+        <span class="sell"><a href="/sell/"><i class="fas fa-cart-plus"></i></a></span>
     <?php } ?>
     <div class="main">
         <?php
@@ -33,13 +33,13 @@ require("./config/session.php");
             $description = $data['description'];
         ?>
             <div class="post card">
+                <h4><?php echo $name; ?></h4>
                 <img src="<?php echo $images[0]; ?>" alt="" loading="lazy">
                 <div class="details">
                     <h5>
-                        <span><?php echo $name; ?></span>
                         <span><?php echo number_format($price, 2); ?>/=</span>
+                        <span><a class="btn btn-sm btn-success" href="order.php?id=<?php echo $id; ?>">Order</a></span>
                     </h5>
-                    <span><a class="btn btn-sm btn-success" href="order.php?id=<?php echo $id; ?>">Order</a></span>
                 </div>
             </div>
         <?php } ?>

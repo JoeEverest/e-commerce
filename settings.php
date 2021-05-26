@@ -12,20 +12,23 @@
 
 <body>
 
-    <?php
-    session_start();
-    require("./config/config.php");
-    require("./config/session.php");
+    <div class="container">
+        <h3>Settings</h3>
+        <ul>
+            <?php
+            session_start();
+            require("./config/config.php");
+            require("./config/session.php");
+            if ($isLoggedIn) { ?>
+                <li><a href="./logout.php">Logout</a></li>
+            <?php } else { ?>
+                <li><a href="./register.php">Sign Up</a></li>
+                <li><a href="./login.php">Login</a></li>
+            <?php } ?>
 
-    if ($isLoggedIn) { ?>
-        <a href="./logout.php">Logout</a>
-    <?php } else { ?>
-        <a href="./register.php">Sign Up</a>
-        <a href="./login.php">Login</a>
-    <?php }
-
-    require("./bottom_bar.php");
-    ?>
+        </ul>
+    </div>
+    <?php require("./bottom_bar.php"); ?>
     <script>
         function setActive(i) {
             document.getElementById(i).classList.add("active");
