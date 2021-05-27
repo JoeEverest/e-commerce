@@ -25,7 +25,9 @@ require("../config/session.php");
     <div class="container">
         <ul>
             <li><a href="add_product.php">Post Product</a></li>
-            <li><a href="orders.php">My Orders</a></li>
+            <li><a href="orders.php">My Orders</a>
+                <?php require("../notifications.php"); ?>
+            </li>
         </ul>
     </div>
     <?php require("./bottom_bar.php"); ?>

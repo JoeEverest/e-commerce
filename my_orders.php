@@ -28,7 +28,12 @@ if (!$isLoggedIn) {
             <h3>NIUZIE</h3>
         </div>
         <?php if ($isLoggedIn) { ?>
-            <span class="sell"><a href="/sell/"><i class="fas fa-cart-plus"></i></a></span>
+            <span class="sell">
+                <?php require("notifications.php"); ?>
+                <a href="/sell/">
+                    <i class="fas fa-cart-plus"></i>
+                </a>
+            </span>
         <?php } ?>
     </nav>
     <div class="container">
