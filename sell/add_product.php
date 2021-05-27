@@ -64,15 +64,24 @@ if (isset($_POST['add'])) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/f66031190f.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../assets/css/nav.css">
     <style>
-    .container{
-        margin-bottom: 70px;
-    }
+        .container {
+            margin-bottom: 70px;
+        }
+        .form-group{
+            margin-bottom: 20px;
+        }
     </style>
     <title>Post Product</title>
 </head>
 
 <body>
+    <nav>
+        <div class="brand">
+            <h3>NIUZIE</h3>
+        </div>
+    </nav>
     <div class="container">
         <h3>Add Product</h3>
         <?php
@@ -100,15 +109,12 @@ if (isset($_POST['add'])) {
         } ?>
         <form method="post" enctype="multipart/form-data">
             <div class="form-group">
-                <lable>Product Name</lable>
-                <input required type="text" name="name" class="form-control">
+                <input placeholder="Product Name" required type="text" name="name" class="form-control">
             </div>
             <div class="form-group">
-                <lable>Product Price</lable>
-                <input required type="number" name="price" class="form-control">
+                <input placeholder="Product Price" required type="number" name="price" class="form-control">
             </div>
             <div class="form-group">
-                <lable>Product Category</lable>
                 <select required name="category" class="form-control">
                     <option value="">Select Category</option>
                     <option value="other">Other</option>
@@ -119,22 +125,18 @@ if (isset($_POST['add'])) {
                 </select>
             </div>
             <div class="form-group">
-                <lable>Product Condition</lable>
                 <select name="condition" class="form-control">
-                    <option value="">Select Condition</option>
+                    <option value="">Product Select Condition</option>
                     <option value="true">Used</option>
                     <option value="false">New</option>
                 </select>
             </div>
             <div class="form-group">
-                <lable>Product Description</lable>
-                <textarea name="description" class="form-control" cols="30" rows="10"></textarea>
+                <textarea placeholder="Product Description" ea name="description" class="form-control" cols="30" rows="10"></textarea>
             </div>
             <div class="form-group">
-                <lable>Product Images</lable>
                 <input required type="file" name="images[]" multiple accept=".jpg, .png, .jpeg" class="form-control">
             </div>
-            <br>
             <button type="submit" name="add" class="form-control btn btn-outline-success"><i class="fa fa-cart-plus"></i> Add Product</button>
         </form>
     </div>
