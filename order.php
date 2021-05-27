@@ -23,12 +23,17 @@ if (!$isLoggedIn) {
 }
 
 if (isset($_POST['order'])) {
+    if (isset($_POST['quantity'])){
+        $quantity = $_POST['quantity'];
+    }else {
+        $quantity = 1;
+    }
     $id = uniqid(true);
     $date = date("Y-m-d");
 
-    $placeOrder = "INSERT INTO orders VALUES ('$id', '$productId', '$username', '$user', '$date', 'true')";
+    $placeOrder = "INSERT INTO orders VALUES ('$id', '$productId', '$quantity', '$username', '$user', '$date', 'true')";
     if (mysqli_query($connect, $placeOrder)) {
-        array_push($message, "Order Placed Successfully");
+        array_push($message, "Order Placed Successfully, The seller will contact you");
     }
 }
 ?>
@@ -46,11 +51,22 @@ if (isset($_POST['order'])) {
             max-width: 100%;
         }
 
-        .container{
+        .container {
             margin-bottom: 70px;
         }
+
         .post .details {
             padding: 5px;
+        }
+
+        .bar {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+        }
+        input{
+            width: 70px;
         }
     </style>
     <title></title>
@@ -59,6 +75,18 @@ if (isset($_POST['order'])) {
 <body>
     <div class="container">
         <h3><?php echo $name; ?></h3>
+        <?php
+        if (!empty($message)) {
+            foreach ($message as $key => $value) {
+        ?>
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <?php
+                    echo $value;
+                    ?>
+                </div>
+        <?php }
+        } ?>
+        <p>Seller: @<a href="profile.php?name=<?php echo $user; ?>"><?php echo $user; ?></a></p>
         <div class="images">
             <img src="<?php echo $images[0]; ?>" alt="">
         </div>
@@ -66,6 +94,7 @@ if (isset($_POST['order'])) {
             <span class="Price">Tsh <?php echo number_format($price, 2); ?>/=</span>
             <span class="user">
                 <form method="post">
+                    <input type="number" name="quantity" value="1">
                     <button type="submit" name="order" class="btn btn-sm btn-success">Order</button>
                 </form>
             </span>

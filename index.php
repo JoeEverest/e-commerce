@@ -14,13 +14,15 @@ require("./config/session.php");
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./assets/css/index.css">
     <script src="https://kit.fontawesome.com/f66031190f.js" crossorigin="anonymous"></script>
-    <title> </title>
+    <title></title>
 </head>
 
 <body>
-    <?php if ($isLoggedIn) { ?>
-        <span class="sell"><a href="/sell/"><i class="fas fa-cart-plus"></i></a></span>
-    <?php } ?>
+    <nav>
+        <?php if ($isLoggedIn) { ?>
+            <span class="sell"><a href="/sell/"><i class="fas fa-cart-plus"></i></a></span>
+        <?php } ?>
+    </nav>
     <div class="main">
         <?php
         $getProducts = mysqli_query($connect, "SELECT * FROM `products` ORDER BY id DESC");
