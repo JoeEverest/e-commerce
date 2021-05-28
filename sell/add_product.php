@@ -7,7 +7,26 @@ $message = array();
 if (!$isLoggedIn) {
     header("Location: ../login.php");
 }
+function compressImage($source, $destination, $quality)
+{
 
+    $info = getimagesize($source);
+
+    if ($info['mime'] == 'image/jpeg')
+        $image = imagecreatefromjpeg($source);
+
+    elseif ($info['mime'] == 'image/gif')
+        $image = imagecreatefromgif($source);
+
+    elseif ($info['mime'] == 'image/png')
+        $image = imagecreatefrompng($source);
+
+    if(imagejpeg($image, $destination, $quality)){
+        return true;
+    }else {
+        return false;
+    }
+}
 if (isset($_POST['add'])) {
     if (isset($_POST['name'], $_POST['price'], $_POST['category'], $_POST['condition'], $_POST['description'])) {
         $name = mysqli_real_escape_string($connect, $_POST['name']);
@@ -32,7 +51,7 @@ if (isset($_POST['add'])) {
                 if ($check == false) {
                     array_push($errors, "File is not an image");
                 } else {
-                    if (move_uploaded_file($_FILES["images"]["tmp_name"][$i], $targetFile)) {
+                    if (compressImage($_FILES["images"]["tmp_name"][$i], $targetFile, 20)) {
                         array_push($images, $targetFile);
                     } else {
                         $uploadSuccess = false;
@@ -69,7 +88,8 @@ if (isset($_POST['add'])) {
         .container {
             margin-bottom: 70px;
         }
-        .form-group{
+
+        .form-group {
             margin-bottom: 20px;
         }
     </style>

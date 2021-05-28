@@ -15,7 +15,7 @@ require("./config/session.php");
     <link rel="stylesheet" href="./assets/css/index.css">
     <link rel="stylesheet" href="./assets/css/nav.css">
     <script src="https://kit.fontawesome.com/f66031190f.js" crossorigin="anonymous"></script>
-    <title></title>
+    <title>NIUZIE</title>
 </head>
 
 <body>
