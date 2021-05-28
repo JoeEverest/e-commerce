@@ -28,6 +28,7 @@ require("../config/session.php");
             <li><a href="orders.php">My Orders</a>
                 <?php require("../notifications.php"); ?>
             </li>
+            <li><a href="manage_products.php">Manage Products</a></li>
         </ul>
     </div>
     <?php require("./bottom_bar.php"); ?>

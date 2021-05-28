@@ -23,9 +23,9 @@ if (!$isLoggedIn) {
 }
 
 if (isset($_POST['order'])) {
-    if (isset($_POST['quantity'])){
+    if (isset($_POST['quantity'])) {
         $quantity = $_POST['quantity'];
-    }else {
+    } else {
         $quantity = 1;
     }
     $id = uniqid(true);
@@ -46,6 +46,8 @@ if (isset($_POST['order'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./assets/css/index.css">
+    <link rel="stylesheet" href="./assets/css/nav.css">
     <style>
         .images img {
             max-width: 100%;
@@ -65,7 +67,8 @@ if (isset($_POST['order'])) {
             justify-content: space-between;
             padding: 10px;
         }
-        input{
+
+        input {
             width: 70px;
         }
     </style>
@@ -73,6 +76,19 @@ if (isset($_POST['order'])) {
 </head>
 
 <body>
+    <nav>
+        <div class="brand">
+            <h3>NIUZIE</h3>
+        </div>
+        <?php if ($isLoggedIn) { ?>
+            <span class="sell">
+                <?php require("notifications.php"); ?>
+                <a href="/sell/">
+                    <i class="fas fa-cart-plus"></i>
+                </a>
+            </span>
+        <?php } ?>
+    </nav>
     <div class="container">
         <h3><?php echo $name; ?></h3>
         <?php
