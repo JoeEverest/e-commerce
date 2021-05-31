@@ -20,17 +20,19 @@ require("./config/session.php");
 
 <body>
     <?php require("./components/nav.php"); ?>
-    <h1>Categories coming next update</h1>
+    <div class="main">
+        <h3>Categories coming next update</h3>
 
-    <script>
-        function setActive(i) {
-            document.getElementById(i).classList.add("active");
-        }
-        document.addEventListener("DOMContentLoaded", function() {
-            setActive("categories");
-        });
-    </script>
+        <script>
+            function setActive(i) {
+                document.getElementById(i).classList.add("active");
+            }
+            document.addEventListener("DOMContentLoaded", function() {
+                setActive("categories");
+            });
+        </script>
         <?php require("./components/bottom_bar.php"); ?>
+    </div>
 
 </body>
 

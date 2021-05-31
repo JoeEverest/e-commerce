@@ -63,8 +63,8 @@ if (!$isLoggedIn) {
                 ?>
             </tbody>
         </table>
+        <?php require("./bottom_bar.php"); ?>
     </div>
-    <?php require("./bottom_bar.php"); ?>
 
 </body>
 

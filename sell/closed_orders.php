@@ -23,7 +23,7 @@ if (!$isLoggedIn) {
 </head>
 
 <body>
-<?php require("../components/nav.php"); ?>
+    <?php require("../components/nav.php"); ?>
 
     <div class="container">
         <ul class="nav nav-tabs">
@@ -64,8 +64,8 @@ if (!$isLoggedIn) {
                 ?>
             </tbody>
         </table>
-    </div>
         <?php require("./bottom_bar.php"); ?>
+    </div>
 
 </body>
 

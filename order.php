@@ -108,8 +108,8 @@ if (isset($_POST['order'])) {
         <div class="description">
             <?php echo $description; ?>
         </div>
+        <?php require("./components/bottom_bar.php"); ?>
     </div>
-    <?php require("./components/bottom_bar.php"); ?>
 
 
 </body>

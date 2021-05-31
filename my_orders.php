@@ -63,6 +63,7 @@ if (!$isLoggedIn) {
                 <?php } ?>
             </tbody>
         </table>
+        <?php require("./components/bottom_bar.php"); ?>
     </div>
     <script>
         function setActive(i) {
@@ -72,7 +73,6 @@ if (!$isLoggedIn) {
             setActive("my_orders");
         });
     </script>
-    <?php require("./components/bottom_bar.php"); ?>
 
 </body>
 

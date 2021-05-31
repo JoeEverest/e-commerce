@@ -28,8 +28,8 @@ require("../config/session.php");
             </li>
             <li><a href="manage_products.php">Manage Products</a></li>
         </ul>
-    </div>
     <?php require("./bottom_bar.php"); ?>
+    </div>
 
 </body>
 

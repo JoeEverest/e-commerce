@@ -1,5 +1,6 @@
 <?php
-$getOrders = mysqli_query($connect, "SELECT * FROM orders WHERE  orders.user = '$username' AND orders.open = 'true'");
+$getOrders = mysqli_query($connect, "SELECT * FROM `orders` JOIN products WHERE orders.product_id = products.id AND orders.user = '$username' AND orders.open = 'true'");
+
 $numRows = mysqli_num_rows($getOrders);
 if ($numRows > 0) {
 ?>

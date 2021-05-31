@@ -48,7 +48,6 @@ require("./config/session.php");
                 </div>
             </div>
         <?php } ?>
-    </div>
     <script>
         function setActive(i) {
             document.getElementById(i).classList.add("active");
@@ -58,6 +57,7 @@ require("./config/session.php");
         });
     </script>
     <?php require("./components/bottom_bar.php"); ?>
+    </div>
 </body>
 
 </html>

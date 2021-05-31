@@ -157,8 +157,8 @@ if (isset($_POST['add'])) {
             </div>
             <button type="submit" name="add" class="form-control btn btn-outline-success"><i class="fa fa-cart-plus"></i> Add Product</button>
         </form>
+        <?php require("./bottom_bar.php"); ?>
     </div>
-    <?php require("./bottom_bar.php"); ?>
 
 </body>
 

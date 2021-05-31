@@ -79,7 +79,7 @@ if (isset($_POST['edit'])) {
 </head>
 
 <body>
-<?php require("../components/nav.php"); ?>
+    <?php require("../components/nav.php"); ?>
 
     <div class="container">
         <h3>Add Product</h3>
@@ -135,8 +135,8 @@ if (isset($_POST['edit'])) {
             </div>
             <button type="submit" name="edit" class="form-control btn btn-outline-info"><i class="fa fa-pen"></i> Edit Product</button>
         </form>
-    </div>
         <?php require("./bottom_bar.php"); ?>
+    </div>
 
 </body>
 

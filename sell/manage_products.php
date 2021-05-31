@@ -29,7 +29,7 @@ if (!$isLoggedIn) {
         </div>
     </nav>
     <div class="container">
-    <h3>Manage Products</h3>
+        <h3>Manage Products</h3>
         <table class="table table-striped table-sm">
             <thead class="thead-dark">
                 <th>Product Name</th>
@@ -56,8 +56,8 @@ if (!$isLoggedIn) {
                 ?>
             </tbody>
         </table>
-    </div>
         <?php require("./bottom_bar.php"); ?>
+    </div>
 
 </body>
 

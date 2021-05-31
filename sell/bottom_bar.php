@@ -1,13 +1,15 @@
 <style>
     .bottom-bar {
         position: fixed;
-        bottom: 0;
-        width: 100vw;
+        bottom: 10px;
+        width: 95vw;
         margin: 0;
         display: flex;
         justify-content: space-evenly;
-        border-top: 0.2px solid #c4c4c4;
         background-color: #fff;
+        border-radius: 40px;
+        box-shadow: 1px 0px 2px 2px #c4bfbf4d;
+        padding: 5px;
     }
 
     .bottom-bar span a {
@@ -17,7 +19,7 @@
         text-decoration: none;
         color: #a3a1a1;
         padding: 5px;
-        font-size: 12px;
+        font-size: 14px;
     }
 
     .bottom-bar .active * {
