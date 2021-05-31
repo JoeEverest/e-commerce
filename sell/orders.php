@@ -43,7 +43,7 @@ if (!$isLoggedIn) {
             </thead>
             <tbody>
                 <?php
-                $getOrders = mysqli_query($connect, "SELECT orders.id, orders.quantity, products.name, products.price, orders.order_by, orders.user, orders.date FROM `orders` JOIN products WHERE orders.product_id = products.id AND orders.user = '$username' AND orders.open = 'true' ORDER BY orders.id ASC");
+                $getOrders = mysqli_query($connect, "SELECT orders.id, orders.quantity, products.name, products.price, orders.order_by, orders.user, orders.date FROM `orders` JOIN products WHERE orders.product_id = products.id AND orders.user = '$username' AND orders.open = 'true' AND orders.status = 'active' ORDER BY orders.id ASC");
                 while ($data = mysqli_fetch_array($getOrders)) {
                     $name = $data['name'];
                     $id = $data['id'];

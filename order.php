@@ -31,7 +31,7 @@ if (isset($_POST['order'])) {
     $id = uniqid(true);
     $date = date("Y-m-d");
 
-    $placeOrder = "INSERT INTO orders VALUES ('$id', '$productId', '$quantity', '$username', '$user', '$date', 'true')";
+    $placeOrder = "INSERT INTO orders VALUES ('$id', '$productId', '$quantity', '$username', '$user', '$date', 'true', 'active')";
     if (mysqli_query($connect, $placeOrder)) {
         array_push($message, "Order Placed Successfully, The seller will contact you");
     }

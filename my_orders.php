@@ -32,11 +32,12 @@ if (!$isLoggedIn) {
                 <th>Price</th>
                 <th>Order By</th>
                 <th>Date</th>
+                <th>Status</th>
                 <th>Action</th>
             </thead>
             <tbody>
                 <?php
-                $getOrders = mysqli_query($connect, "SELECT orders.id, orders.product_id, orders.open, products.name, products.price, orders.order_by, orders.user, orders.date FROM `orders` JOIN products WHERE orders.product_id = products.id AND orders.order_by = '$username' ORDER BY orders.id ASC");
+                $getOrders = mysqli_query($connect, "SELECT orders.id, orders.product_id, orders.open, products.name, products.price, orders.order_by, orders.user, orders.date FROM `orders` JOIN products WHERE orders.product_id = products.id AND orders.order_by = '$username' AND orders.status = 'active' ORDER BY orders.id ASC");
                 while ($data = mysqli_fetch_array($getOrders)) {
                     $name = $data['name'];
                     $id = $data['id'];
@@ -59,6 +60,7 @@ if (!$isLoggedIn) {
                         <td><a href="../profile.php?name=<?php echo $seller; ?>"><?php echo $seller; ?></a></td>
                         <td><?php echo $date; ?></td>
                         <td><?php echo $status; ?></td>
+                        <td><a href="cancel_order.php?id=<?php echo $id; ?>" class="btn btn-sm btn-danger">Cancel</a></td>
                     </tr>
                 <?php } ?>
             </tbody>
