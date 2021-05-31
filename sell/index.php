@@ -18,11 +18,8 @@ require("../config/session.php");
 </head>
 
 <body>
-    <nav>
-        <div class="brand">
-            <h3>NIUZIE</h3>
-        </div>
-    </nav>
+    <?php require("../components/nav.php"); ?>
+
     <div class="container">
         <ul>
             <li><a href="add_product.php">Post Product</a></li>
@@ -32,7 +29,7 @@ require("../config/session.php");
             <li><a href="manage_products.php">Manage Products</a></li>
         </ul>
     </div>
-        <?php require("./components/bottom_bar.php"); ?>
+    <?php require("./bottom_bar.php"); ?>
 
 </body>
 

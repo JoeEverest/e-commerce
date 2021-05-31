@@ -21,9 +21,9 @@ function compressImage($source, $destination, $quality)
     elseif ($info['mime'] == 'image/png')
         $image = imagecreatefrompng($source);
 
-    if(imagejpeg($image, $destination, $quality)){
+    if (imagejpeg($image, $destination, $quality)) {
         return true;
-    }else {
+    } else {
         return false;
     }
 }
@@ -98,11 +98,8 @@ if (isset($_POST['add'])) {
 </head>
 
 <body>
-    <nav>
-        <div class="brand">
-            <h3>NIUZIE</h3>
-        </div>
-    </nav>
+    <?php require("../components/nav.php"); ?>
+
     <div class="container">
         <h3>Add Product</h3>
         <?php
@@ -161,7 +158,7 @@ if (isset($_POST['add'])) {
             <button type="submit" name="add" class="form-control btn btn-outline-success"><i class="fa fa-cart-plus"></i> Add Product</button>
         </form>
     </div>
-        <?php require("./components/bottom_bar.php"); ?>
+    <?php require("./bottom_bar.php"); ?>
 
 </body>
 

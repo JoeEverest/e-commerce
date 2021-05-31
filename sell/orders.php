@@ -23,11 +23,7 @@ if (!$isLoggedIn) {
 </head>
 
 <body>
-    <nav>
-        <div class="brand">
-            <h3>NIUZIE</h3>
-        </div>
-    </nav>
+    <?php require("../components/nav.php"); ?>
     <div class="container">
         <ul class="nav nav-tabs">
             <li class="nav-item">
@@ -68,7 +64,7 @@ if (!$isLoggedIn) {
             </tbody>
         </table>
     </div>
-        <?php require("./components/bottom_bar.php"); ?>
+    <?php require("./bottom_bar.php"); ?>
 
 </body>
 

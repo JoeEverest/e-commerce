@@ -23,6 +23,7 @@
             require("./config/config.php");
             require("./config/session.php");
             if ($isLoggedIn) { ?>
+                <li><a href="./sell/">Sell</a></li>
                 <li><a href="./logout.php">Logout</a></li>
             <?php } else { ?>
                 <li><a href="./register.php">Sign Up</a></li>
