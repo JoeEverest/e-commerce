@@ -139,7 +139,8 @@ if (isset($_POST['edit'])) {
             <button type="submit" name="edit" class="form-control btn btn-outline-info"><i class="fa fa-pen"></i> Edit Product</button>
         </form>
     </div>
-    <?php require("./bottom_bar.php"); ?>
+        <?php require("./components/bottom_bar.php"); ?>
+
 </body>
 
 </html>

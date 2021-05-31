@@ -54,7 +54,7 @@ require("./config/session.php");
             setActive("home");
         });
     </script>
-    <?php require("./bottom_bar.php"); ?>
+    <?php require("./components/bottom_bar.php"); ?>
 </body>
 
 </html>

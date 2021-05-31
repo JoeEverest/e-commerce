@@ -13,11 +13,8 @@
 </head>
 
 <body>
-    <nav>
-        <div class="brand">
-            <h3>NIUZIE</h3>
-        </div>
-    </nav>
+    <?php require("./components/nav.php"); ?>
+
     <div class="container">
         <h3>Settings</h3>
         <ul>
@@ -34,13 +31,14 @@
 
         </ul>
     </div>
-    <?php require("./bottom_bar.php"); ?>
+        <?php require("./components/bottom_bar.php"); ?>
+
     <script>
         function setActive(i) {
             document.getElementById(i).classList.add("active");
         }
         document.addEventListener("DOMContentLoaded", function() {
-            setActive("settings");
+            setActive("account");
         });
     </script>
 </body>

@@ -24,19 +24,7 @@ if (!$isLoggedIn) {
 </head>
 
 <body>
-    <nav>
-        <div class="brand">
-            <h3>NIUZIE</h3>
-        </div>
-        <?php if ($isLoggedIn) { ?>
-            <span class="sell">
-                <?php require("notifications.php"); ?>
-                <a href="/sell/">
-                    <i class="fas fa-cart-plus"></i>
-                </a>
-            </span>
-        <?php } ?>
-    </nav>
+    <?php require("./components/nav.php"); ?>
     <div class="container">
         <table class="table table-striped table-sm">
             <thead class="thead-dark">
@@ -84,7 +72,8 @@ if (!$isLoggedIn) {
             setActive("my_orders");
         });
     </script>
-    <?php require("./bottom_bar.php"); ?>
+    <?php require("./components/bottom_bar.php"); ?>
+
 </body>
 
 </html>

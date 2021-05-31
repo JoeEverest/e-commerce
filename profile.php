@@ -71,7 +71,8 @@ $email = $profileData['email'];
             </div>
         <?php } ?>
     </div>
-    <?php require("./bottom_bar.php"); ?>
+        <?php require("./components/bottom_bar.php"); ?>
+
 </body>
 
 </html>
