@@ -32,16 +32,19 @@ require("./config/session.php");
             $id = $data['id'];
             $description = $data['description'];
         ?>
-            <div class="post card">
-                <h4><?php echo $name; ?></h4>
-                <a href="order.php?id=<?php echo $id; ?>">
-                    <div class="img" style="background-image: url('<?php echo $images[0]; ?>');"></div>
-                </a>
+            <div class="post">
+                <div class="post-image"  style="background-image: url('<?php echo $images[0]; ?>');">
+                    <a href="order.php?id=<?php echo $id; ?>">
+                        <span class="img"></span>
+                    </a>
+                </div>
                 <div class="details">
-                    <h5>
-                        <span><?php echo number_format($price, 2); ?>/=</span>
-                        <span><a class="btn btn-sm btn-success" href="order.php?id=<?php echo $id; ?>">Order</a></span>
-                    </h5>
+                    <h4><?php echo $name; ?></h4>
+                    <p><?php echo substr($description, 0, 40) . "..."; ?></p>
+                    <div class="price">
+                        <h5><?php echo number_format($price, 2); ?>/=</h5>
+                        <span><a class="btn btn-sm btn-success" href="order.php?id=<?php echo $id; ?>">More</a></span>
+                    </div class="price">
                 </div>
             </div>
         <?php } ?>

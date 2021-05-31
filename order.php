@@ -77,19 +77,8 @@ if (isset($_POST['order'])) {
 </head>
 
 <body>
-    <nav>
-        <div class="brand">
-            <h3>NIUZIE</h3>
-        </div>
-        <?php if ($isLoggedIn) { ?>
-            <span class="sell">
-                <?php require("notifications.php"); ?>
-                <a href="/sell/">
-                    <i class="fas fa-cart-plus"></i>
-                </a>
-            </span>
-        <?php } ?>
-    </nav>
+    <?php require("./components/nav.php"); ?>
+
     <div class="container">
         <h3><?php echo $name; ?></h3>
         <?php
@@ -120,7 +109,7 @@ if (isset($_POST['order'])) {
             <?php echo $description; ?>
         </div>
     </div>
-        <?php require("./components/bottom_bar.php"); ?>
+    <?php require("./components/bottom_bar.php"); ?>
 
 
 </body>

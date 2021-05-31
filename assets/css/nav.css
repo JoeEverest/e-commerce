@@ -2,7 +2,7 @@
 nav .search * {
   font-family: "Roboto", sans-serif;
 }
-body{
+body {
   margin: 0;
   padding: 0;
   border: none;
@@ -16,20 +16,23 @@ nav {
   justify-content: space-between;
   align-items: center;
   padding: 10px;
+  box-shadow: 1px 2px 3px #c4bfbf4d;
+  margin-bottom: 10px;
+  background-color: #fff;
 }
 .search {
   border: 1px solid #a3a1a1;
   border-radius: 20px;
   padding-top: 5px;
   background-color: #a3a1a1;
-  max-width: 50%;
+  width: 50%;
   padding-bottom: 5px;
   padding-left: 20px;
 }
 .search input {
   border: none;
   background: none;
-  max-width: 80%;
+  width: 80%;
 }
 ::placeholder {
   font-size: 11;

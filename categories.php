@@ -20,7 +20,7 @@ require("./config/session.php");
 
 <body>
     <?php require("./components/nav.php"); ?>
-    <h1>Categories</h1>
+    <h1>Categories coming next update</h1>
 
     <script>
         function setActive(i) {
