@@ -11,7 +11,7 @@ if (isset($_GET['id'])) {
     $data = mysqli_fetch_array($getProductData);
     $name = $data['name'];
     $price = $data['price'];
-    $description = $data['description'];
+    $description = nl2br($data['description']);
     $images = json_decode($data['images'], true);
     $productId = $data['id'];
     $user = $data['user'];

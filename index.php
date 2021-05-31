@@ -20,19 +20,7 @@ require("./config/session.php");
 </head>
 
 <body>
-    <nav>
-        <div class="brand">
-            <h3>NIUZIE</h3>
-        </div>
-        <?php if ($isLoggedIn) { ?>
-            <span class="sell">
-                <?php require("notifications.php"); ?>
-                <a href="/sell/">
-                    <i class="fas fa-cart-plus"></i>
-                </a>
-            </span>
-        <?php } ?>
-    </nav>
+    <?php require("./components/nav.php"); ?>
     <div class="main">
         <?php
         $getProducts = mysqli_query($connect, "SELECT * FROM `products` ORDER BY id DESC");
@@ -46,8 +34,9 @@ require("./config/session.php");
         ?>
             <div class="post card">
                 <h4><?php echo $name; ?></h4>
-                <div class="img" style="
-    background-image: url('<?php echo $images[0]; ?>');"></div>
+                <a href="order.php?id=<?php echo $id; ?>">
+                    <div class="img" style="background-image: url('<?php echo $images[0]; ?>');"></div>
+                </a>
                 <div class="details">
                     <h5>
                         <span><?php echo number_format($price, 2); ?>/=</span>

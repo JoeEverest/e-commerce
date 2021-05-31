@@ -59,7 +59,9 @@ $email = $profileData['email'];
         ?>
             <div class="post card">
                 <h4><?php echo $name; ?></h4>
-                <img src="<?php echo $images[0]; ?>" alt="" loading="lazy">
+                <a href="order.php?id=<?php echo $id; ?>">
+                    <div class="img" style="background-image: url('<?php echo $images[0]; ?>');"></div>
+                </a>
                 <div class="details">
                     <h5>
                         <span><?php echo number_format($price, 2); ?>/=</span>
