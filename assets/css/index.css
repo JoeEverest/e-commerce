@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700&display=swap");
-
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap');
 @media screen and (min-width: 900px) {
   body {
     background-image: url("../undraw_blank_canvas_3rbb.png");
@@ -26,10 +26,12 @@
   flex-direction: column;
   justify-content: space-between;
   margin: 5px;
+  padding: 5px;
 }
 .price {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 .post {
   display: flex;
@@ -44,4 +46,36 @@
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+}
+.post .details h4 {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+}
+.post .details p {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 14px;
+  color: #5e5d5d;
+}
+.post .details .price h5 {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  margin: 0;
+}
+.button {
+  background: #f27920;
+  border-radius: 3px;
+  padding: 5px 15px;
+  text-decoration: none;
+  color: #fff;
+  font-size: 14px;
+  border: none;
+}
+.button:hover {
+  background: #f27920;
 }

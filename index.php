@@ -33,30 +33,30 @@ require("./config/session.php");
             $description = $data['description'];
         ?>
             <div class="post">
-                <div class="post-image"  style="background-image: url('<?php echo $images[0]; ?>');">
+                <div class="post-image" style="background-image: url('<?php echo $images[0]; ?>');">
                     <a href="order.php?id=<?php echo $id; ?>">
                         <span class="img"></span>
                     </a>
                 </div>
                 <div class="details">
                     <h4><?php echo $name; ?></h4>
-                    <p><?php echo substr($description, 0, 40) . "..."; ?></p>
+                    <p><?php echo substr($description, 0, 50) . "..."; ?></p>
                     <div class="price">
-                        <h5><?php echo number_format($price, 2); ?>/=</h5>
-                        <span><a class="btn btn-sm btn-success" href="order.php?id=<?php echo $id; ?>">More</a></span>
+                        <h5>Price: <?php echo number_format($price, 2); ?>/=</h5>
+                        <span><a class="button" href="order.php?id=<?php echo $id; ?>">More</a></span>
                     </div class="price">
                 </div>
             </div>
         <?php } ?>
-    <script>
-        function setActive(i) {
-            document.getElementById(i).classList.add("active");
-        }
-        document.addEventListener("DOMContentLoaded", function() {
-            setActive("home");
-        });
-    </script>
-    <?php require("./components/bottom_bar.php"); ?>
+        <script>
+            function setActive(i) {
+                document.getElementById(i).classList.add("active");
+            }
+            document.addEventListener("DOMContentLoaded", function() {
+                setActive("home");
+            });
+        </script>
+        <?php require("./components/bottom_bar.php"); ?>
     </div>
 </body>
 

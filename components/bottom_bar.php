@@ -23,7 +23,7 @@
     }
 
     .bottom-bar .active * {
-        color: #07BEB8;
+        color: #f27920;
     }
 </style>
 <script src="https://kit.fontawesome.com/f66031190f.js" crossorigin="anonymous"></script>
@@ -39,6 +39,6 @@
         <a href="my_orders.php"><i class="fas fa-shopping-cart"></i>My Orders</a>
     </span>
     <span id="account">
-        <a href="./account.php"><i class="far fa-user-circle"></i>My Account</a>
+        <a href="./account.php"><i class="far fa-user-circle"></i>Account</a>
     </span>
 </div>

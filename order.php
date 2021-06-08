@@ -101,7 +101,7 @@ if (isset($_POST['order'])) {
             <span class="user">
                 <form method="post">
                     <input type="number" name="quantity" value="1">
-                    <button type="submit" name="order" class="btn btn-sm btn-success">Order</button>
+                    <button type="submit" name="order" class="button">Order</button>
                 </form>
             </span>
         </div>
